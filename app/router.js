@@ -1,9 +1,6 @@
 'use strict';
 
-/**
- * @param {Egg.Application} app - egg application
- */
+// 添加router文件夹拆分路由模块
 module.exports = app => {
-  const { router, controller } = app;
-  router.get('/', controller.home.index);
+  require('./router/login')(app);
 };

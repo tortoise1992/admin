@@ -22,7 +22,13 @@ module.exports = appInfo => {
   const userConfig = {
     // myAppName: 'egg',
   };
-
+  // 关闭csrf的校验
+  config.security={
+    csrf: {
+      enable: false,
+    },
+  }
+  
   return {
     ...config,
     ...userConfig,
