@@ -6,4 +6,8 @@ module.exports = {
   // static: {
   //   enable: true,
   // }
+  passport:{
+    enable: true,
+    package: 'egg-passport',
+  }
 };
