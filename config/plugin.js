@@ -9,5 +9,14 @@ module.exports = {
   passport:{
     enable: true,
     package: 'egg-passport',
+  },
+  jwt:{
+    enable: true,
+    package: "egg-jwt"
+  },
+  mysql:{
+    enable: true,
+    package: 'egg-mysql'
   }
 };
+
