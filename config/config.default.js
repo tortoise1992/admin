@@ -42,7 +42,9 @@ module.exports = appInfo => {
         app: true,
         // 是否加载到 agent 上，默认关闭
         agent: false,
-      }
+    },
+    // 开启权限校验的中间件
+    // middleware: [ 'auth' ]
   };
   // 关闭csrf的校验
   config.security={
@@ -50,6 +52,7 @@ module.exports = appInfo => {
       enable: false,
     },
   }
+  
   
   return {
     ...config,
