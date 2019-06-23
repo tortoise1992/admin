@@ -15,23 +15,32 @@ class UserController extends Controller {
     }
     async add(){
         const { ctx } = this;
-        let newUser=ctx.request.body
+        let newUser=ctx.request.body,username=newUser.username
         // 先查是否用户名重复
-        
-        let response=await this.ctx.service.user.add(newUser)
-        if(response.affectedRows === 1){
-            ctx.body={
-                code:200,
-                success:true,
-                msg:'操作成功'                      
+        let hasUser=await this.ctx.service.user.find(username)
+        if(!hasUser){
+            let response=await this.ctx.service.user.add(newUser)
+            if(response.affectedRows === 1){
+                ctx.body={
+                    code:200,
+                    success:true,
+                    msg:'操作成功'                      
+                }
+            }else{
+                ctx.body={
+                    code:0,
+                    success:false,
+                    msg:'操作失败'                      
+                }
             }
         }else{
             ctx.body={
                 code:0,
                 success:false,
-                msg:'操作失败'                      
+                msg:'用户名重复'                      
             }
         }
+        
     }
 }
 

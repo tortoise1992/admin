@@ -9,6 +9,10 @@ class UserService extends Service {
     const results = await this.app.mysql.insert('user_info',user);    
     return results
   }
+  async find(name){
+    const results = await this.app.mysql.get('user_info',{username:name});    
+    return results
+  }
 }
 
 module.exports = UserService;
